@@ -1,29 +1,27 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
-      </div>
-    </router-link>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto">
-        <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg px-3 d-flex flex-column py-3">
+    <div class="gap-2 d-flex flex-column">
+      <User />
+      <router-link class="btn text-success lighten-30 selectable text-uppercase" :to="{ name: 'Home' }">
+        Home
+      </router-link>
+      <!-- <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <router-link v-if="user.isAuthenticated" class="btn text-success lighten-30 selectable text-uppercase" :to="{ name: 'Account' }">
+        Account
+      </router-link>
+
+      <button v-if="user?.isAuthenticated" class="btn bg-success lighten-30 selectable text-uppercase">New event</button>
+
       <!-- LOGIN COMPONENT HERE -->
       <Login />
     </div>
@@ -31,12 +29,17 @@
 </template>
 
 <script>
+import { computed } from '@vue/reactivity';
+import { AppState } from '../AppState.js';
 import Login from './Login.vue'
+import User from './User.vue';
 export default {
   setup() {
-    return {}
+    return {
+      user: computed(() => AppState.user),
+    }
   },
-  components: { Login }
+  components: { Login, User }
 }
 </script>
 
@@ -53,5 +56,10 @@ a:hover {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.bg-success:hover {
+  background-color: rgba(0,0,0,0) !important;
+  color: #92ffbf !important;
 }
 </style>
