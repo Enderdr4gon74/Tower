@@ -1,6 +1,6 @@
 <template>
   <span class="navbar-text py-0">
-    <div class="btn text-success lighten-30 selectable text-uppercase px-4" v-if="!user.isAuthenticated"  @click="login">
+    <div class="btn text-success lighten-30 selectable text-uppercase px-4" v-if="!user.isAuthenticated"  @click="login" title="Login">
       Login
     </div>
 
@@ -10,7 +10,7 @@
           <img :src="account.picture || user.picture" alt="account photo" width="100" class="rounded" :title="account.name || user.name" />
         </div>
       </div> -->
-      <div class="btn text-success lighten-30 selectable text-uppercase" @click="logout">
+      <div class="btn text-success lighten-30 selectable text-uppercase" @click="logout" title="Logout">
         <i class="mdi mdi-logout"></i>
         logout
       </div>

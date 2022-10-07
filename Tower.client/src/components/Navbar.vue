@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg px-3 d-flex flex-column py-3">
     <div class="gap-2 d-flex flex-column">
       <User />
-      <router-link class="btn text-success lighten-30 selectable text-uppercase" :to="{ name: 'Home' }">
+      <router-link class="btn text-success lighten-30 selectable text-uppercase" :to="{ name: 'Home' }" title="Home">
         Home
       </router-link>
       <!-- <button
@@ -16,11 +16,11 @@
         >
         <span class="navbar-toggler-icon"></span>
       </button> -->
-      <router-link v-if="user.isAuthenticated" class="btn text-success lighten-30 selectable text-uppercase" :to="{ name: 'Account' }">
+      <router-link v-if="user.isAuthenticated" class="btn text-success lighten-30 selectable text-uppercase" :to="{ name: 'Account' }" title="Account">
         Account
       </router-link>
 
-      <button v-if="user?.isAuthenticated" class="btn bg-success lighten-30 selectable text-uppercase">New event</button>
+      <button v-if="user?.isAuthenticated"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark" class="btn bg-success lighten-30 selectable text-uppercase" title="New Event">New event</button>
 
       <!-- LOGIN COMPONENT HERE -->
       <Login />

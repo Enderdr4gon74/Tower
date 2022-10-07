@@ -8,8 +8,8 @@ export class Event {
     let minutes = startDate.getUTCMinutes().toString()
     if (minutes.length == 1) { minutes = "0" + minutes } 
     let hoursNumber = startDate.getUTCHours()
-    let amPm = "Am"
-    if (hoursNumber.length > 12) { hoursNumber -= 12; amPm = "Pm" }
+    let amPm = "am"
+    if (hoursNumber.length > 12) { hoursNumber -= 12; amPm = "pm" }
     let hoursString = hoursNumber.toString()
     if (hoursString.length == 1) { hoursString = "0" + hoursString } 
     this.id = data.id

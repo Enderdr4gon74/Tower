@@ -10,11 +10,11 @@
     </div>
     <div class="col-12 p-2 bg-light-dark my-3 rounded-3 d-flex justify-content-between">
       <!-- <h4 class="m-0">filters here</h4> -->
-      <button @click="changeFilter('')" class="btn bg-success lighten-30 selectable text-uppercase">All</button>
-      <button @click="changeFilter('concert')" class="btn bg-success lighten-30 selectable text-uppercase">Concert</button>
-      <button @click="changeFilter('convention')" class="btn bg-success lighten-30 selectable text-uppercase">Convention</button>
-      <button @click="changeFilter('sport')" class="btn bg-success lighten-30 selectable text-uppercase">Sport</button>
-      <button @click="changeFilter('digital')" class="btn bg-success lighten-30 selectable text-uppercase">Digital</button>
+      <button @click="changeFilter('')" class="btn bg-success lighten-30 selectable text-uppercase" title="Filter all">All</button>
+      <button @click="changeFilter('concert')" class="btn bg-success lighten-30 selectable text-uppercase" title="Filter Concerts">Concert</button>
+      <button @click="changeFilter('convention')" class="btn bg-success lighten-30 selectable text-uppercase" title="Filter Conventions">Convention</button>
+      <button @click="changeFilter('sport')" class="btn bg-success lighten-30 selectable text-uppercase" title="Filter Sports">Sport</button>
+      <button @click="changeFilter('digital')" class="btn bg-success lighten-30 selectable text-uppercase" title="Filter Digitals">Digital</button>
     </div>
     <div class="col-12">
       <div class="row p-3" v-if="events">
